@@ -2,16 +2,12 @@ const textToSpeech = require('@google-cloud/text-to-speech');
 const fs = require('fs');
 const util = require('util');
 const client = new textToSpeech.TextToSpeechClient();
-
-/**
- * TODO(developer): Uncomment the following lines before running the sample.
- */
-// const ssmlFile = 'Local path to SSML file, eg. input.ssml';
 const outputFile = 'output.mp3';
-
 const request = {
-    input: { ssml: "hello" },
-    voice: { languageCode: 'en-AU', ssmlGender: 'MALE' },
+    input: {
+        ssml: '<speak> <voice gender="MALE"> hello </voice> </speak>'
+    },
+    voice: { languageCode: 'en-GB', ssmlGender: 'MALE' },
     audioConfig: {
         audioEncoding: 'LINEAR16'
     },
